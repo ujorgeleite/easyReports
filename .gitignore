@@ -1,0 +1,36 @@
+# Ignore Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ignore virtual environment directories
+venv/
+env/
+.venv/
+.env/
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore system-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore log files
+*.log
+
+# Ignore Excel files
+*.xlsx
+
+# Ignore any other data or binary files
+*.csv
+*.sqlite3
+*.db
+
+# Ignore VS Code specific settings
+.vscode/
+
+# Ignore IDE files (e.g., PyCharm, VSCode)
+.idea/
+*.sublime-workspace
+*.sublime-project
