@@ -33,3 +33,13 @@ class ReadData:
             print("Error: The file {} does not exist.".format(self.file_path))
         except KeyError as e:
             print("Error: Column {} not found in the file.".format(e))
+            
+    def merge_data_frames(self,df1,df2, aggregator):
+        return pd.merge(df1, df2, on=aggregator, how='inner')
+    
+    def group_by(self,data_frame,columns):
+        print(data_frame)
+        print(columns)
+        return data_frame.groupby([columns]).agg(
+            {columns: ['sum', 'count','count']}
+        )

@@ -62,3 +62,17 @@ def test_read_and_select_columns_file_not_found(read_data,capsys):
     
     # Assert the printed error message
     assert "Error: The file non_existent_file.xlsx does not exist." in captured.out
+
+
+def test_group_by(monkeypatch,read_data):
+    def mock_read_excel(*args, **kwargs):
+        return pd.DataFrame(sample_data)
+    monkeypatch.setattr(pd, "read_excel", mock_read_excel)
+    
+    selected_columns = ["DATA", "VALOR", "UF"]
+    result_df = read_data.read_and_select_columns(sheet_name="Sheet1", columns=selected_columns)
+    grouped_df = read_data.group_by(result_df,"UF")
+    assert ('UF', 'sum') in grouped_df.columns, "Sum column missing"
+    assert ('UF', 'count') in grouped_df.columns, "Sum column missing"
+    assert len(grouped_df) > 0, "No data returned after grouping"
+    
