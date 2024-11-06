@@ -21,6 +21,7 @@ class ReadData:
 
     def read_and_select_columns(self, sheet_name, columns):
         try:
+            
             # Load the Excel sheet
             df = pd.read_excel(self.file_path, sheet_name=sheet_name)
 
