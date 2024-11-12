@@ -35,7 +35,8 @@ class ReadData:
             print("Error: Column {} not found in the file.".format(e))
             
     def merge_data_frames(self,df1,df2, aggregator):
-        return pd.merge(df1, df2, on=aggregator, how='inner')
+        
+        return pd.merge(df1, df2, on=aggregator, how='outer')
     
     def group_by(self,data_frame,columns):
         print(data_frame)
